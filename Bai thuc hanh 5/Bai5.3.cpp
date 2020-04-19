@@ -2,7 +2,7 @@
 #include<string.h>
 #include<ctype.h>
 
-void Xoa(char* ten, int viTri)
+void Xoa(char ten[], int viTri)
 {
 	if (viTri < 0)
 	   return;
@@ -12,7 +12,7 @@ void Xoa(char* ten, int viTri)
 	}
 }
 
-void chuanHoa(char* ten)
+void chuanHoa(char ten[])
 {
 	// xoa khoang trang dau chuoi
 	while (ten[0] == ' ' || ten[0] == '\t') Xoa(ten, 0);
