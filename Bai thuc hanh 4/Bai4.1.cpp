@@ -8,9 +8,6 @@ int main()
 		scanf("%d", &n);
 	} while (n <= 0 || n >= 8);
 	
-	if (n <= 0 || n >= 8)
-	   return 0;
-	
 	int giaiThua = 1;
 	for (int i = 2; i <= n; ++i)
 	{
