@@ -2,7 +2,8 @@
 
 int LaSoNguyenTo(int n)
 {
-	for (int i = 2; i <= n/2; ++i)
+	int i;
+	for (i = 2; i <= n/2; ++i)
 	{
 		if (n % i == 0)
 		   return 0;
@@ -18,7 +19,7 @@ int main()
 	int n = 0;
 	scanf("%d", &n);
 	
-	if (LaSoNguyenTo(n) == 1)
+	if (LaSoNguyenTo(n))
 	   printf("La so nguyen to");
 	else
 	   printf("Khong phai so nguyen to");

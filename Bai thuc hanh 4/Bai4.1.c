@@ -3,13 +3,14 @@
 int main()
 {
 	short n = 1;
+	short i;
 	do
 	{
 		scanf("%d", &n);
 	} while (n <= 0 || n >= 8);
 	
 	int giaiThua = 1;
-	for (int i = 2; i <= n; ++i)
+	for (i = 2; i <= n; ++i)
 	{
 		giaiThua *= i;
 	}
