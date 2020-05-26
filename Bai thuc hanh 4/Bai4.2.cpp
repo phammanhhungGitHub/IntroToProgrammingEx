@@ -17,8 +17,8 @@ int main()
 {
 	int n = 0;
 	scanf("%d", &n);
-	int laSoNguyenTo = LaSoNguyenTo(n);
-	if (laSoNguyenTo == 1)
+	
+	if (LaSoNguyenTo(n) == 1)
 	   printf("La so nguyen to");
 	else
 	   printf("Khong phai so nguyen to");
