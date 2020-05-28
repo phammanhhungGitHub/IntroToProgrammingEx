@@ -56,7 +56,7 @@ int main()
 	scanf("%lf", &b);
 	scanf("%lf", &c);
 	GiaiPhuongTrinhBac2(a, b, c);
-	printf("Hello World");
+	
 	
 	return 0;
 }
