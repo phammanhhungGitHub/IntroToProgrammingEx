@@ -1,21 +1,33 @@
 #include<stdio.h>
 
+int GiaiThua(int n)
+{
+	if (n == 1)
+	{
+		return 1;
+	}
+	else
+	{
+		return n * GiaiThua(n - 1);
+	}
+}
+
 int main()
 {
-	short n = 1;
-	short i;
+	int n;
+	/* giaiThua = 1, i;*/
+	
 	do
 	{
 		scanf("%d", &n);
 	} while (n <= 0 || n >= 8);
 	
-	int giaiThua = 1;
-	for (i = 2; i <= n; ++i)
+	/*for (i = 1; i <= n; ++i)
 	{
-		giaiThua *= i;
-	}
+		giaiThua = giaiThua * i;
+	}*/
 	
-	printf("%d", giaiThua);
+	printf("%d", GiaiThua(n));
 	
 	return 0;
 }
