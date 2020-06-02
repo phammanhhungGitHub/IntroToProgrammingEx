@@ -54,13 +54,14 @@ void chuanHoa(char ten[])
 int main()
 {
 	char arrTen[100][51];
-	int soLuong = 0;
+	int i, soLuong = 0;
+	
 	scanf("%d", &soLuong);
-	char ch;
-	scanf("%c", &ch);
+	
 	// nhap danh sach ten
 	for (int i = 0; i < soLuong; ++i)
-	{	
+	{
+		scanf("%*[\n]");
 		gets(arrTen[i]);
 	}
 	
@@ -75,10 +76,8 @@ int main()
 	{
 		 printf("%s:%d", arrTen[i], strlen(arrTen[i]));
 		 if (i != soLuong - 1)
-		    printf("\n");
-		
+		    printf("\n");	
 	}
-	  
 	
 	return 0;
 }
