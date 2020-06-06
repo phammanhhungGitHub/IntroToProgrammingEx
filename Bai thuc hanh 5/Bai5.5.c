@@ -6,43 +6,48 @@ void Xoa(char ten[], int viTri)
 {
 	if (viTri < 0)
 	   return;
-	for (int i = viTri; i < strlen(ten); ++i)
+	   
+	int i;
+	for (i = viTri; i < strlen(ten); ++i)
 	{
 		ten[i] = ten[i + 1];
 	}
 }
 
-void chuanHoa(char ten[])
+void ChuanHoa(char ten[])
 {
+	int i;
 	// xoa khoang trang dau chuoi
-	while (ten[0] == ' ' || ten[0] == '\t') Xoa(ten, 0);
+	while (isblank(ten[0])) Xoa(ten, 0);
 	
 	// xoa khoang trang cuoi chuoi
 	int length = strlen(ten);
-	while (ten[length - 1] == ' ' || ten[length - 1] == '\t')
+	while (isblank(ten[length - 1]))
 	{
 		Xoa(ten, length - 1);
 		--length;
 	}
 	
 	// xoa khoang trang giua cac tu
-	for (int i = 0; i < length; ++i)
+	for (i = 0; i < length; ++i)
 	{
-		if (ten[i] == ' ' && (ten[i + 1] == ' ' || ten[i + 1] == '\t'))
+		if (isblank(ten[i]))
 		{
-			Xoa(ten, i);
-			--i;
-			--length;
-		}
-		else if (ten[i] == '\t')
-		{
-			ten[i] = ' ';
-			--i;
+			if (isblank(ten[i + 1]))
+			{
+				Xoa(ten, i);
+				--i;
+				--length;
+			}
+			else if (ten[i] != ' ')
+			{
+				ten[i] = ' ';
+			}
 		}
 	}
 	
 	// chuan hoa ten
-	for (int i = 0; i < length; ++i)
+	for (i = 0; i < length; ++i)
 	{
 		if (i == 0 || (isalpha(ten[i]) && ten[i - 1] == ' '))
 		   ten[i] = toupper(ten[i]);
@@ -52,11 +57,12 @@ void chuanHoa(char ten[])
 }
 
 
-void sapXep(char arrTen[][51], int soLuong)
+void SapXep(char arrTen[][51], int soLuong)
 {
-	for (int i = 0; i < soLuong - 1; ++i)
+	int i, j;
+	for (i = 0; i < soLuong - 1; ++i)
 	{
-		for (int j = i + 1; j < soLuong; ++j)
+		for (j = i + 1; j < soLuong; ++j)
 		{
 			if (strcmp(arrTen[i], arrTen[j]) > 0)
 			{
@@ -73,27 +79,28 @@ int main()
 {
 	char arrTen[100][51];
 	int soLuong = 0;
+	int i;
 	
 	scanf("%d", &soLuong);
 	
 	// nhap danh sach ten
-	for (int i = 0; i < soLuong; ++i)
+	for (i = 0; i < soLuong; ++i)
 	{
 		scanf("%*[\n]");
 		gets(arrTen[i]);
 	}
 	
 	// chuan hoa tung ten
-	for (int i = 0; i < soLuong; ++i)
+	for (i = 0; i < soLuong; ++i)
 	{
-		chuanHoa(arrTen[i]);
+		ChuanHoa(arrTen[i]);
 	}
 	
 	// sap xep
-	sapXep(arrTen, soLuong);
+	SapXep(arrTen, soLuong);
 	
 	// in danh sach ten da chuan hoa va sap xep
-	for (int i = 0; i < soLuong; ++i)
+	for (i = 0; i < soLuong; ++i)
 	{
 		printf("(%d)%s", i + 1, arrTen[i]);
 		if (i != soLuong - 1)
